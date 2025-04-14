@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X-ray Diagnosis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='static\css\styles.css') }}">
+</head>
+<body>
+    <h1>X-ray Diagnosis</h1>
+    <p>Upload an X-ray image to get a diagnosis.</p>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <button type="submit">Predict</button>
+    </form>
+</body>
+</html>

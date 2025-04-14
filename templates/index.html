@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthViz</title>
+</head>
+<body>
+    <div class="hero-image">
+        <h1> HealthViz</h1>
+    </div>
+
+    <div class="container">
+        <!-- BMI Calculator Section -->
+        <h2>BMI Calculator</h2>
+        <form action="/bmi" method="POST">
+            <label for="height">Height (in meters):</label>
+            <input type="text" id="height" name="height" placeholder="Enter your height" required>
+            <label for="weight">Weight (in kg):</label>
+            <input type="text" id="weight" name="weight" placeholder="Enter your weight" required>
+            <button type="submit">Calculate BMI</button>
+        </form>
+
+        <div id="bmi-result">
+            {% if bmi %}
+                <h3>Your BMI is: {{ bmi }}</h3>
+                <p>{{ advice }}</p>
+            {% endif %}
+        </div>
+
+        <!-- Nutrition Information Section -->
+        <h2>Nutrition Information</h2>
+        <form action="/nutrition" method="POST">
+            <label for="food_item">Enter food item:</label>
+            <input type="text" id="food_item" name="food_item" placeholder="e.g. Apple" required>
+            <button type="submit">Get Nutritional Info</button>
+        </form>
+
+        <!-- Displaying Nutrition Info -->
+        {% if nutrition_info %}
+            <h3>{{ nutrition_info.name }}</h3>
+            <ul>
+                <li>Calories: {{ nutrition_info.calories }} kcal</li>
+                <li>Fat: {{ nutrition_info.fat }} g</li>
+                <li>Protein: {{ nutrition_info.protein }} g</li>
+                <li>Carbohydrates: {{ nutrition_info.carbs }} g</li>
+            </ul>
+        {% elif error %}
+            <p>{{ error }}</p>
+        {% endif %}
+
+        <!-- X-ray Image Prediction Section -->
+        <h2>Upload X-ray Image for Disease Prediction</h2>
+        <form action="/predict" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*" required>
+            <button type="submit">Predict</button>
+        </form>
+
+        <div id="prediction-result">
+            {% if prediction %}
+                <h3>Prediction Result: {{ prediction }}</h3>
+            {% endif %}
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 HealthViz. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
