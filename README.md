@@ -56,35 +56,51 @@
 ---
 ## ⚙️ Installation & Setup
 
-###  Clone this repository
+### 🪜 Step 1: Create a Virtual Environment
 ```bash
-git clone https://github.com/yourusername/HealthViz.git
-cd HealthViz
-```
-###  Create a virtual environment
 python -m venv venv
-venv\Scripts\activate      # On Windows
-source venv/bin/activate   # On Mac/Linux
+🧩 Step 2: Activate the Virtual Environment
+On Windows:
 
-### Install dependencies
+bash
+Copy code
+venv\Scripts\activate
+On Mac/Linux:
+
+bash
+Copy code
+source venv/bin/activate
+📦 Step 3: Install Dependencies
+bash
+Copy code
 pip install -r requirements.txt
-
-### Run the application
+🚀 Step 4: Run the Application
+bash
+Copy code
 python app.py
-
-###Open in browser
-
+🌐 Step 5: Open in Browser
 👉 http://127.0.0.1:5000
 
-###🧠 Model Information
-
-Input: X-ray image resized to 224x224
+🧠 Model Information
+Input: X-ray image resized to 224 × 224
 
 Framework: TensorFlow / Keras
 
 Classification Labels:
 
 0 → COVID
+
+1 → NORMAL
+
+2 → PNEUMONIA
+
+Preprocessing Steps:
+
+Image normalization
+
+RGB conversion (for grayscale images)
+
+Resizing to match model input size
 
 1 → NORMAL
 
