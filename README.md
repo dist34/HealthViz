@@ -54,56 +54,46 @@
 | **Deployment** | Flask local server / Render / Heroku |
 
 ---
+
 ## ⚙️ Installation & Setup
 
 ### 🪜 Step 1: Create a Virtual Environment
-```bash
+```
 python -m venv venv
-🧩 Step 2: Activate the Virtual Environment
-On Windows:
+```
 
-bash
-Copy code
+### 🧩 Step 2: Activate the Virtual Environment
+**On Windows:**
+```
 venv\Scripts\activate
-On Mac/Linux:
-
-bash
-Copy code
+```
+**On Mac/Linux:**
+```
 source venv/bin/activate
-📦 Step 3: Install Dependencies
-bash
-Copy code
+```
+
+### 📦 Step 3: Install Dependencies
+```
 pip install -r requirements.txt
-🚀 Step 4: Run the Application
-bash
-Copy code
+```
+
+### 🚀 Step 4: Run the Application
+```
 python app.py
-🌐 Step 5: Open in Browser
-👉 http://127.0.0.1:5000
+```
 
-🧠 Model Information
-Input: X-ray image resized to 224 × 224
+### 🌐 Step 5: Open in Browser
+Open the application in your browser:
+```
+http://127.0.0.1:5000
+```
 
-Framework: TensorFlow / Keras
+## 🧠 Model Information
 
-Classification Labels:
+| Attribute | Details |
+|------------|----------|
+| Input | X-ray image resized to 224 × 224 |
+| Framework | TensorFlow / Keras |
+| Labels | 0 → COVID<br>1 → NORMAL<br>2 → PNEUMONIA |
+| Preprocessing Steps | Image normalization, RGB conversion (for grayscale images), resizing to 224×224 |
 
-0 → COVID
-
-1 → NORMAL
-
-2 → PNEUMONIA
-
-Preprocessing Steps:
-
-Image normalization
-
-RGB conversion (for grayscale images)
-
-Resizing to match model input size
-
-1 → NORMAL
-
-2 → PNEUMONIA
-
-Preprocessing: Image normalization, RGB conversion, resizing
